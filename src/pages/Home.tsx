@@ -23,14 +23,14 @@ export const Home: React.FC = () => {
         <div className="mb-8 md:flex md:items-center md:justify-between">
           <div className="min-w-0 flex-1">
             <h1 className="text-3xl font-bold leading-7 text-slate-900 sm:truncate sm:text-4xl sm:tracking-tight">
-              Diretório de usuário
+              Diretório de Usuários
             </h1>
           </div>
           <div className="mt-4 flex md:ml-4 md:mt-0">
             <SearchBar
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search users..."
+              placeholder="Procurar usuário..."
             />
           </div>
         </div>
