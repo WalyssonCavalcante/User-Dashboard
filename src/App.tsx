@@ -1,23 +1,25 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
-// Importaremos o UserDetails aqui depois
-// import { UserDetails } from './pages/UserDetails';
+import { UserDetails } from "./pages/UserDetails";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Route for the Dashboard/Home page */}
+        {/* Rota principal (Home) */}
         <Route path="/" element={<Home />} />
 
-        {/* Placeholder route for Details (we will create this next) */}
-        <Route
-          path="/users/:id"
-          element={<div>Details Page Coming Soon</div>}
-        />
+        <Route path="/users/:id" element={<UserDetails />} />
 
-        {/* Fallback for unknown routes */}
-        <Route path="*" element={<div>404 - Page Not Found</div>} />
+        {/* Qualquer outra rota cai aqui */}
+        <Route
+          path="*"
+          element={
+            <div className="min-h-screen flex items-center justify-center text-slate-500">
+              404 - Página não encontrada
+            </div>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

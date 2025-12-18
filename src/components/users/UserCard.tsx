@@ -13,7 +13,7 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate(`/user/${user.id}`);
+    navigate(`/users/${user.id}`);
   };
 
   return (
