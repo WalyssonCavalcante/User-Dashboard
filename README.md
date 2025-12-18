@@ -4,7 +4,7 @@ Este projeto foi desenvolvido como parte do teste técnico para a vaga de Front-
 
 ## Captura de tela
 
-![screenshot](Screenshot.png)
+![Screenshot](Screenshot.png)
 
 ## Tecnologias Utilizadas
 
@@ -40,7 +40,7 @@ Busquei seguir princípios de **Clean Code** e separação de responsabilidades 
 1.  **Performance:** Na página de detalhes, utilizei `Promise.all` para buscar os dados do usuário e seus posts em paralelo, reduzindo o tempo de espera.
 2.  **Organização:** A estrutura de pastas foi pensada para que qualquer desenvolvedor entenda o projeto rapidamente ("Screaming Architecture").
 
-## 🔧 Como Rodar o Projeto
+## Como Rodar o Projeto
 
 Pré-requisitos: Node.js instalado.
 
