@@ -1,73 +1,81 @@
-# React + TypeScript + Vite
+# User Dashboard – Teste Técnico Front-end Honda Motoca
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi desenvolvido como parte do teste técnico para a vaga de Front-end Júnior. Trata-se de um dashboard responsivo para gerenciamento e visualização de usuários, consumindo a API pública JSONPlaceholder.
 
-Currently, two official plugins are available:
+## Captura de tela
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![screenshot](Screenshot.png)
 
-## React Compiler
+## Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O projeto foi construído utilizando uma stack moderna e focada em performance:
 
-## Expanding the ESLint configuration
+- **React 18** (via Vite): Para uma construção rápida e otimizada.
+- **TypeScript**: Para garantir tipagem estática e segurança no código.
+- **Tailwind CSS**: Para estilização ágil, responsiva e consistente.
+- **Axios**: Configurado com interceptors para gerenciamento de requisições HTTP.
+- **React Router DOM**: Para gerenciamento de rotas e navegação SPA.
+- **Lucide React**: Biblioteca de ícones leve e moderna.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Funcionalidades
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Listagem de Usuários:** Exibição de cards com informações essenciais.
+- **Busca Inteligente:** Campo de pesquisa com estratégia de **Debounce** (atraso na execução) para evitar requisições desnecessárias a cada letra digitada.
+- **Página de Detalhes:** Visualização completa do perfil do usuário e seus posts recentes.
+- **Feedback Visual:** Indicadores de carregamento (Loading) e tratamento de erros amigável.
+- **Design Responsivo:** Layout adaptável para dispositivos móveis e desktop.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Estrutura e Organização (Arquitetura)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Busquei seguir princípios de **Clean Code** e separação de responsabilidades para manter o projeto escalável:
+
+- `src/services`: Camada isolada para comunicação com a API.
+- `src/hooks`: Lógica de estado e efeitos separada da interface (ex: `useUsers`, `useUserDetails`).
+- `src/components/ui`: Componentes visuais genéricos (Botões, Inputs, Avatares).
+- `src/components/users`: Componentes específicos do domínio de usuários.
+- `src/types`: Interfaces TypeScript para garantir a consistência dos dados.
+
+### Destaques Técnicos
+
+1.  **Performance:** Na página de detalhes, utilizei `Promise.all` para buscar os dados do usuário e seus posts em paralelo, reduzindo o tempo de espera.
+2.  **Organização:** A estrutura de pastas foi pensada para que qualquer desenvolvedor entenda o projeto rapidamente ("Screaming Architecture").
+
+## 🔧 Como Rodar o Projeto
+
+Pré-requisitos: Node.js instalado.
+
+1. Clone o repositório:
+
+```bash
+  git clone [https://github.com/WalyssonCavalcante/User-Dashboard.git](https://github.com/WalyssonCavalcante/User-Dashboard.git)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Entre na pasta do projeto:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd user-dashboard
 ```
+
+3. Instale as dependências:
+
+```bash
+npm install
+```
+
+4. Execute o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+5. Acesse o localhost informado no seu navegador.
+
+## Melhorias Futuras
+
+Com mais tempo, eu gostaria de implementar:
+
+- **Testes Unitários:** Aprender e Configurar Vitest e Testing Library para garantir a estabilidade dos componentes.
+- **Paginação:** Implementar paginação na listagem principal (atualmente limitada pela API).
+- **Filtros Avançados:** Adicionar filtros por cidade ou empresa.
+
+Desenvolvido por **Wallysson Cavalcante**
